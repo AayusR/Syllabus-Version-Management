@@ -34,9 +34,9 @@ const PORT=7132
 mongoose
     .connect(process.env.MONGODB_URL)
     .then(() => {
-        app.listen(process.env.PORT, () => {
+        app.listen(PORT, () => {
             console.log("Database is running");
-            console.log(`Server is running on port ${7132}`);
+            console.log(`Server is running on port ${PORT}`);
         });
     })
     .catch((error) => {
