@@ -30,13 +30,13 @@ app.use("/subject-pdf", express.static(path.join(__dirname, "SubjectPdf")));
 app.use("/api/auth", userRoute);
 app.use("/api/program", programRoute);
 app.use("/api/subject", subjectRoute);
-
+const PORT=7132
 mongoose
     .connect(process.env.MONGODB_URL)
     .then(() => {
         app.listen(process.env.PORT, () => {
             console.log("Database is running");
-            console.log(`Server is running on port ${process.env.port}`);
+            console.log(`Server is running on port ${7132}`);
         });
     })
     .catch((error) => {
