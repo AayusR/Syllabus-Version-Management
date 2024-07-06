@@ -1,0 +1,103 @@
+.navbar {
+  height: 65px;
+  border-bottom: 0.5px solid rgb(231, 228, 228);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  //   color: #555;
+  color: white;
+  //   background-color: whitesmoke;
+  background-color: rgb(161, 154, 154);
+
+  .wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+
+      .tags {
+        margin-left: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        position: relative;
+        font-size: 17px;
+        transition: all 0.5s ease-in-out;
+        // color : black;
+
+        .item-img {
+          // &:hover .item-dropdown {
+          //   display: block;
+          // }
+          .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+          }
+
+          // .item-dropdown {
+          //   display: none;
+          //   position: absolute;
+          //   right: 0px;
+          //   background-color: #f9f9f9;
+          //   min-width: 100px;
+          //   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          //   padding: 8px 8px;
+          //   z-index: 1;
+
+          //   p {
+          //     color: black;
+          //     margin: 5px;
+          //     cursor: pointer;
+          //   }
+          // }
+        }
+
+        .counter {
+          width: 15px;
+          height: 15px;
+          background-color: red;
+          border-radius: 50%;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+          font-weight: bold;
+          position: absolute;
+          top: -5px;
+          right: -5px;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
