@@ -2,7 +2,7 @@
     "name": "frontend",
     "version": "0.1.0",
     "private": true,
-    "proxy": "http://b8ow8oc.bct.itclub.pp.ua",
+    "proxy": "http://localhost:7132",
     "dependencies": {
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
@@ -22,7 +22,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "set PORT=7138 && react-scripts start",
+        "start": "set PORT=7138 && react-scripts start --host syllabus.bct.itclub.pp.ua",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
