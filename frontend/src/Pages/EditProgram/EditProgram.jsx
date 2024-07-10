@@ -21,7 +21,7 @@ const EditProgram = () => {
   useEffect(() => {
     const getPrograms = async () => {
       try {
-        const response = await axios.get(process.env.BACKEND_URL+"/api/program/all");
+        const response = await axios.get("http://b8ow8oc.bct.itclub.pp.ua/api/program/all");
 
         setAllPrograms(response.data);
         setSelectedProgram(response.data[0].programCode);
@@ -46,12 +46,12 @@ const EditProgram = () => {
             "content-type": "multipart/form-data",
           },
         };
-        const response = await axios.post(process.env.BACKEND_URL+
-          `/api/program/upload`,
+        const response = await axios.post(
+          `http://b8ow8oc.bct.itclub.pp.ua/api/program/upload`,
           fileData,
           config
         );
-        const response1 = await axios.put(process.env.BACKEND_URL+`/api/program/${selectedProgram}`, {
+        const response1 = await axios.put(`http://b8ow8oc.bct.itclub.pp.ua/api/program/${selectedProgram}`, {
           imgString: response.data,
           name: programName,
           programCode,

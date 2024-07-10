@@ -39,8 +39,8 @@ const CreateSubject = () => {
         },
       };
 
-      const response = await axios.post(process.env.BACKEND_URL+
-        `/api/subject/upload`,
+      const response = await axios.post(
+        `http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload`,
         fileData,
         config
       );
@@ -48,8 +48,8 @@ const CreateSubject = () => {
       const pdfData = new FormData();
       pdfData.append("file", pdfFile);
 
-      const response1 = await axios.post(process.env.BACKEND_URL+
-        "/api/subject/upload-file",
+      const response1 = await axios.post(
+        "http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload-file",
         pdfData,
         config
       );
@@ -62,7 +62,7 @@ const CreateSubject = () => {
       // }
 
       // console.log(selectedParents);
-      const response2 = await axios.post(process.env.BACKEND_URL+`/api/subject/create`, {
+      const response2 = await axios.post(`http://b8ow8oc.bct.itclub.pp.ua/api/subject/create`, {
         imgString: response.data,
         syllabus: [
           {
@@ -118,7 +118,7 @@ const CreateSubject = () => {
   useEffect(() => {
     const getPrograms = async () => {
       try {
-        const response = await axios.get(process.env.BACKEND_URL+"/api/program/all");
+        const response = await axios.get("http://b8ow8oc.bct.itclub.pp.ua/api/program/all");
 
         setAllPrograms(response.data);
         setSelectedProgram(response.data[0].programCode);
