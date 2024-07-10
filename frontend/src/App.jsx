@@ -13,7 +13,7 @@ import Versions from "./Pages/Versions/Versions";
 function App() {
   return (
     <div className="app">
-      <BrowserRouter>
+      <BrowserRouter basename="/login">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

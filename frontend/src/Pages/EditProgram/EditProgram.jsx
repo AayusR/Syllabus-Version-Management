@@ -21,7 +21,7 @@ const EditProgram = () => {
   useEffect(() => {
     const getPrograms = async () => {
       try {
-        const response = await axios.get("/api/program/all");
+        const response = await axios.get(process.env.BACKEND_URL+"/api/program/all");
 
         setAllPrograms(response.data);
         setSelectedProgram(response.data[0].programCode);
@@ -46,12 +46,12 @@ const EditProgram = () => {
             "content-type": "multipart/form-data",
           },
         };
-        const response = await axios.post(
+        const response = await axios.post(process.env.BACKEND_URL+
           `/api/program/upload`,
           fileData,
           config
         );
-        const response1 = await axios.put(`/api/program/${selectedProgram}`, {
+        const response1 = await axios.put(process.env.BACKEND_URL+`/api/program/${selectedProgram}`, {
           imgString: response.data,
           name: programName,
           programCode,

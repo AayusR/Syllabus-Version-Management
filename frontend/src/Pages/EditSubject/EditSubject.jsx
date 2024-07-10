@@ -44,7 +44,7 @@ const CreateSubject = () => {
   const [subjVersionId, setSubjVersionId] = useState("");
   useEffect(() => {
     const getLatestVersion = async () => {
-      const response = await axios.get(
+      const response = await axios.get(process.env.BACKEND_URL+
         `/api/subject/get-latest-version/${selectedSubject}`
       );
       setSubjVersionId(response.data);
@@ -74,7 +74,7 @@ const CreateSubject = () => {
         },
       };
 
-      const response = await axios.post(
+      const response = await axios.post(process.env.BACKEND_URL+
         `/api/subject/upload`,
         fileData,
         config
@@ -83,7 +83,7 @@ const CreateSubject = () => {
       const pdfData = new FormData();
       pdfData.append("file", pdfFile);
 
-      const response1 = await axios.post(
+      const response1 = await axios.post(process.env.BACKEND_URL+
         "/api/subject/upload-file",
         pdfData,
         config
@@ -101,14 +101,14 @@ const CreateSubject = () => {
       //first mai syllabus ko lagi version-number khojera tyo specific ko change garne
 
       //changing latest version of pdf
-      const changedPdf = await axios.put(
+      const changedPdf = await axios.put(process.env.BACKEND_URL+
         `/api/subject/update-syllabus-pdf/${selectedSubject}`,
         {
           id: subjVersionId,
           pdf: response1.data,
         }
       );
-      const response2 = await axios.put(`/api/subject/${selectedSubject}`, {
+      const response2 = await axios.put(process.env.BACKEND_URL+`/api/subject/${selectedSubject}`, {
         imgString: response.data,
         name,
         subjectCode,
@@ -130,20 +130,20 @@ const CreateSubject = () => {
         },
       };
 
-      const response1 = await axios.post(
+      const response1 = await axios.post(process.env.BACKEND_URL+
         "/api/subject/upload-file",
         pdfData,
         config
       );
 
-      const changedPdf = await axios.put(
+      const changedPdf = await axios.put(process.env.BACKEND_URL+
         `/api/subject/update-syllabus-pdf/${selectedSubject}`,
         {
           id: subjVersionId,
           pdf: response1.data,
         }
       );
-      const response2 = await axios.put(`/api/subject/${selectedSubject}`, {
+      const response2 = await axios.put(process.env.BACKEND_URL+`/api/subject/${selectedSubject}`, {
         name,
         subjectCode,
         semester,
@@ -164,13 +164,13 @@ const CreateSubject = () => {
         },
       };
 
-      const response = await axios.post(
+      const response = await axios.post(process.env.BACKEND_URL+
         `/api/subject/upload`,
         fileData,
         config
       );
 
-      const response2 = await axios.put(`/api/subject/${selectedSubject}`, {
+      const response2 = await axios.put(process.env.BACKEND_URL+`/api/subject/${selectedSubject}`, {
         imgString: response.data,
         name,
         subjectCode,
@@ -183,7 +183,7 @@ const CreateSubject = () => {
       }
     } else {
       console.log("HELLO4");
-      const response2 = await axios.put(`/api/subject/${selectedSubject}`, {
+      const response2 = await axios.put(process.env.BACKEND_URL+`/api/subject/${selectedSubject}`, {
         name,
         subjectCode,
         semester,
@@ -223,7 +223,7 @@ const CreateSubject = () => {
   useEffect(() => {
     const getPrograms = async () => {
       try {
-        const response = await axios.get("/api/program/all");
+        const response = await axios.get(process.env.BACKEND_URL+"/api/program/all");
 
         setAllPrograms(response.data);
         setSelectedProgram(response.data[0].programCode);
@@ -237,7 +237,7 @@ const CreateSubject = () => {
 
   useEffect(() => {
     const getAllSubjects = async () => {
-      const response = await axios.get("/api/subject/all");
+      const response = await axios.get(process.env.BACKEND_URL+"/api/subject/all");
       setAllSubjects(response.data);
       setSelectedSubject(response.data[0].subjectCode);
     };
@@ -246,7 +246,7 @@ const CreateSubject = () => {
 
   useEffect(() => {
     const getSingleSubject = async () => {
-      const response = await axios.get(`/api/subject/${selectedSubject}`);
+      const response = await axios.get(process.env.BACKEND_URL+`/api/subject/${selectedSubject}`);
       console.log("Single Subject Data is", response.data);
       setName(response.data.name);
       setSubjectCode(response.data.subjectCode);
@@ -268,7 +268,7 @@ const CreateSubject = () => {
           "content-type": "multipart/form-data",
         },
       };
-      const response = await axios.post(
+      const response = await axios.post(process.env.BACKEND_URL+
         `/api/subject/upload-file`,
         pdfData,
         config
@@ -276,7 +276,7 @@ const CreateSubject = () => {
 
       setPdffile(null);
       setPdfName("");
-      const response1 = await axios.put(
+      const response1 = await axios.put(process.env.BACKEND_URL+
         `/api/subject/new-version/${selectedSubject}`,
         {
           syllabus: {

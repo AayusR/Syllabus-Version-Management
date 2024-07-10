@@ -28,13 +28,13 @@ const CreateProgram = () => {
           "content-type": "multipart/form-data",
         },
       };
-      const response = await axios.post(
+      const response = await axios.post(process.env.BACKEND_URL+
         "/api/program/upload",
         fileData,
         config
       );
 
-      const response1 = await axios.post("/api/program/create", {
+      const response1 = await axios.post(process.env.BACKEND_URL+"/api/program/create", {
         name,
         programCode,
         imgString: response.data,

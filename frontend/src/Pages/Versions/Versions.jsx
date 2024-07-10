@@ -18,7 +18,7 @@ const Versions = () => {
   useEffect(() => {
     const getSubject = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.get(process.env.BACKEND_URL+
           `/api/subject/${urlParams?.subjectCode}`
         );
         setItem(response.data);

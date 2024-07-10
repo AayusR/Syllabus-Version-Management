@@ -9,7 +9,7 @@ const Home = () => {
   const user = useSelector((state) => state.user);
   useEffect(() => {
     const getPrograms = async () => {
-      const response = await axios.get("/api/program/all");
+      const response = await axios.get(process.env.BACKEND_URL+"/api/program/all");
       setPrograms(response.data);
     };
     getPrograms();

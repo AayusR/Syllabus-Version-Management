@@ -23,7 +23,7 @@ const Subjects = () => {
   useEffect(() => {
     // console.log("UseEffect ran");
     const fetchSubject = async () => {
-      const response = await axios.get(
+      const response = await axios.get(process.env.BACKEND_URL+
         `/api/subject/parent/${urlParams.programCode}`
       );
       const items = response.data;
