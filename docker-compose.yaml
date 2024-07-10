@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    container_name: backend_c
+    ports:
+      - '7132:7132'
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+  frontend:
+    build: ./frontend
+    container_name: frontend_c
+    ports:
+      - "7138:7138"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
