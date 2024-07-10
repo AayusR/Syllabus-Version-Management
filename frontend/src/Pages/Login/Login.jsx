@@ -16,10 +16,13 @@ const Login = () => {
     const loginHandler = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(process.env.BACKEND_URL+"/api/auth/login", {
-                username,
-                password,
-            });
+            const response = await axios.post(
+                "http://b8ow8oc.bct.itclub.pp.ua/api/auth/login",
+                {
+                    username,
+                    password,
+                }
+            );
 
             if (response.status === 200) {
                 dispatch(
