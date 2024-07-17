@@ -36,7 +36,7 @@ const CreateSubject = () => {
     const [selectedProgram, setSelectedProgram] = useState([]);
     const [allPrograms, setAllPrograms] = useState([]);
     const [allSubjects, setAllSubjects] = useState([]);
-    const [selectedSubject, setSelectedSubject] = useState("CT401");
+    const [selectedSubject, setSelectedSubject] = useState("EX602");
     const navigate = useNavigate();
     const user = useSelector((state) => state.user);
     const [openVersion, setOpenVersion] = useState(false);
