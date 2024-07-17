@@ -40,7 +40,7 @@ const CreateSubject = () => {
             pdfData.append("file", pdfFile);
 
             const response1 = await axios.post(
-                "/api/subject/upload-file",
+                "http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload-file",
                 pdfData,
                 config
             );
@@ -53,7 +53,7 @@ const CreateSubject = () => {
             // }
 
             // console.log(selectedParents);
-            const response2 = await axios.post(`/api/subject/create`, {
+            const response2 = await axios.post(`http://b8ow8oc.bct.itclub.pp.ua/api/subject/create`, {
                 syllabus: [
                     {
                         pdf: response1.data,
@@ -103,7 +103,7 @@ const CreateSubject = () => {
     useEffect(() => {
         const getPrograms = async () => {
             try {
-                const response = await axios.get("/api/program/all");
+                const response = await axios.get("http://b8ow8oc.bct.itclub.pp.ua/api/program/all");
 
                 setAllPrograms(response.data);
                 setSelectedProgram(response.data[0].programCode);
