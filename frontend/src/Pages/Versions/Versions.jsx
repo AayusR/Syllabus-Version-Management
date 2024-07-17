@@ -47,7 +47,7 @@ const Versions = () => {
                 <a
                   key={i.pdf}
                   target="_blank"
-                  href={`http://localhost:4000/subject-pdf/${i.pdf}`}
+                  href={`http://localhost:7132/subject-pdf/${i.pdf}`}
                 >
                   Click To Open
                 </a>

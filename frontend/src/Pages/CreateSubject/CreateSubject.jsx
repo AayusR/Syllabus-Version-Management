@@ -29,9 +29,8 @@ const CreateSubject = () => {
       pdfName
     );
 
-    if (actualFile && pdfFile) {
-      const fileData = new FormData();
-      fileData.append("img", actualFile);
+    if ( pdfFile) {
+      
 
       const config = {
         headers: {
@@ -39,11 +38,7 @@ const CreateSubject = () => {
         },
       };
 
-      const response = await axios.post(
-        `/api/subject/upload`,
-        fileData,
-        config
-      );
+      
 
       const pdfData = new FormData();
       pdfData.append("file", pdfFile);
@@ -63,7 +58,7 @@ const CreateSubject = () => {
 
       // console.log(selectedParents);
       const response2 = await axios.post(`/api/subject/create`, {
-        imgString: response.data,
+        
         syllabus: [
           {
             pdf: response1.data,
@@ -97,11 +92,6 @@ const CreateSubject = () => {
         return s.value;
       })
     );
-  };
-
-  const imageFileChangeHandler = (e) => {
-    setActualFile(e.target.files[0]);
-    setFileName(e.target.files[0].name);
   };
 
   const pdfFileHandler = (e) => {

@@ -15,7 +15,7 @@ const Semester = ({ semester, number }) => {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <div className="item">
-                  <img src={`/subject-image/${sub?.imgString}`} alt="" />
+                  
                   <p>
                     <b>Subject</b> : {sub?.name}
                   </p>
