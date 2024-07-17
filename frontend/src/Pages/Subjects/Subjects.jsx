@@ -35,6 +35,12 @@ const Subjects = () => {
             const items = response.data;
             setSemester1(items.filter((i) => i.semester === "1"));
             setSemester2(items.filter((i) => i.semester === "2"));
+            setSemester3(items.filter((i) => i.semester === "3"));
+            setSemester4(items.filter((i) => i.semester === "4"));
+            setSemester5(items.filter((i) => i.semester === "5"));
+            setSemester6(items.filter((i) => i.semester === "6"));
+            setSemester7(items.filter((i) => i.semester === "7"));
+            setSemester8(items.filter((i) => i.semester === "8"));
         };
 
         fetchSubject();
