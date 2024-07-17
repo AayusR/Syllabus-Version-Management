@@ -38,7 +38,7 @@ const Home = () => {
                             >
                                 <div className="item">
                                     <img
-                                        src={`http://b8ow8oc.bct.itclub.pp.ua//program-image/${program?.imgString}`}
+                                        src={`http://b8ow8oc.bct.itclub.pp.ua/program-image/${program?.imgString}`}
                                         alt=""
                                     />
                                     <p>
