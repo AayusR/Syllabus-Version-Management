@@ -185,27 +185,6 @@ const CreateSubject = () => {
               onChange={(e) => setSemester(e.target.value.toString())}
             />
           </div>
-
-          <div className="formInput">
-            <label
-              htmlFor="imgFile"
-              style={{ cursor: "pointer" }}
-              className="selectImage"
-            >
-              Add Image
-              <PhotoCameraIcon />
-              <input
-                type="file"
-                id="imgFile"
-                style={{ display: "none" }}
-                onChange={(e) => imageFileChangeHandler(e)}
-              />
-              <span style={{ marginLeft: "10px" }}>
-                {fileName &&
-                  fileName.slice(0, 10) + "." + fileName.split(".")[1]}
-              </span>
-            </label>
-          </div>
           <div className="formInput" style={{ marginTop: "10px" }}>
             <label
               htmlFor="pdf"
