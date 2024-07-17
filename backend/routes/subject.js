@@ -108,17 +108,15 @@ router.delete("/:subjectCode", async (req, res) => {
     });
     const subjectDeleted = await Subject.findByIdAndDelete(getSubject._id);
     console.log(subjectDeleted);
-    const filePath =
-      "/home/aditya/softaware-engineering/backend/SubjectImages/" +
-      subjectDeleted.imgString;
+    const filePath = path.join(__dirname, '..', 'SubjectImages', subjectDeleted.imgString);//
+    
     fs.unlink(filePath, () => {
       console.log("Image has been removed from the server");
     });
     const lengthPdf = subjectDeleted.syllabus.length;
     for (let i = 0; i < lengthPdf; i++) {
-      const filePath1 =
-        "/home/aditya/softaware-engineering/backend/SubjectPdf/" +
-        subjectDeleted.syllabus[i].pdf;
+        const filePath1 = path.join(__dirname, '..', 'SubjectPdf', subjectDeleted.syllabus[i].pdf);//
+      
       fs.unlink(filePath1, () => {
         console.log("Pdf Deleted " + subjectDeleted.syllabus[i].pdf);
       });
