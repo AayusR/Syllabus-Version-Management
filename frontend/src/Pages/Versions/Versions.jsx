@@ -31,6 +31,7 @@ const Versions = () => {
     return (
         <div className="versions">
             <h1>Versions</h1>
+            <p id="subName">{item.name}</p>
             <table>
                 <tr>
                     <th>File Name</th>
