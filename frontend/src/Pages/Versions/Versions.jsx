@@ -10,9 +10,9 @@ const Versions = () => {
     let urlParams = useParams();
 
     useEffect(() => {
-        if (!user.accessToken) {
-            navigate("/login");
-        }
+        // if (!user.accessToken) {
+        //     navigate("/login");
+        // }
     }, [user.accessToken]);
 
     useEffect(() => {

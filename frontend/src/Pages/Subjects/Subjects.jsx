@@ -22,9 +22,9 @@ const Subjects = () => {
     // console.log(urlParams.programCode);
 
     useEffect(() => {
-        if (!user.accessToken) {
-            navigate("/login");
-        }
+        // if (!user.accessToken) {
+        //     navigate("/login");
+        // }
     }, [user.accessToken]);
     useEffect(() => {
         // console.log("UseEffect ran");

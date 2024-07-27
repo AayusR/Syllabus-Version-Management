@@ -17,9 +17,9 @@ const Home = () => {
         getPrograms();
     }, []);
     useEffect(() => {
-        if (!user.accessToken) {
-            navigate("/login");
-        }
+        // if (!user.accessToken) {
+        //     navigate("/login");
+        // }
     }, []);
     return (
         <div className="home">

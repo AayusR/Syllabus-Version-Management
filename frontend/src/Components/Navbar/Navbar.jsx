@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutHandler = () => {
     dispatch(LOGOUT());
-    navigate("/login");
+    navigate("/");
   };
   const user = useSelector((state) => state.user);
 
@@ -30,12 +30,12 @@ const Navbar = () => {
             >
               <div className="item">Login</div>
             </Link>
-            <Link
+            {/* <Link
               to="/register"
               style={{ textDecoration: "none", color: "white" }}
             >
               <div className="item">Register</div>
-            </Link>
+            </Link> */}
           </div>
         ) : (
           <div className="items">
