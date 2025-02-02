@@ -20,7 +20,7 @@ const Versions = () => {
         const getSubject = async () => {
             try {
                 const response = await axios.get(
-                    `/api/subject/${urlParams?.subjectCode}`
+                    `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${urlParams?.subjectCode}`
                 );
                 setItem(response.data);
             } catch (error) {
@@ -34,7 +34,7 @@ const Versions = () => {
         try {
             // Make an API call to delete the version
             await axios.delete(
-                `/api/subject/${urlParams?.subjectCode}/version/${pdfName}`
+                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${urlParams?.subjectCode}/version/${pdfName}`
             );
 
             // Update the state to remove the deleted item from the syllabus

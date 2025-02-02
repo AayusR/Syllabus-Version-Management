@@ -29,7 +29,7 @@ const CreateProgram = () => {
         },
       };
       const response = await axios.post(
-        "/api/program/upload",
+        "http://b8ow8oc.bct.itclub.pp.ua/api/program/upload",
         fileData,
         config
       );

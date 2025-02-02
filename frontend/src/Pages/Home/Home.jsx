@@ -9,7 +9,7 @@ const Home = () => {
     const user = useSelector((state) => state.user);
     useEffect(() => {
         const getPrograms = async () => {
-            const response = await axios.get("/api/program/all");
+            const response = await axios.get("http://b8ow8oc.bct.itclub.pp.ua/api/program/all");
             setPrograms(response.data);
         };
         getPrograms();
