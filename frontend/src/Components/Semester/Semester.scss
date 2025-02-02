@@ -1,32 +1,69 @@
 .semester {
-  margin-top: 20px;
-  margin-bottom: px;
-  .semesterContainer {
-    padding: 0px 20px 0 20px;
-
-    
-    .subjectContainer {
-      margin-top: 10px;
-      
-      table {
-        border-collapse: collapse;
-    
-        td,
-        th {
-          width: 200px;
-          border: 1px solid #999;
-    
-          padding: 0.5rem;
-          text-align: left;
-        }
-        .sn{
-            width: 30px;
-        }
-        #subRow:hover{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  
+    .semesterContainer {
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 800px;
+  
+      .semester-title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2b5876;
+        margin-bottom: 15px;
+      }
+  
+      .subjectContainer {
+        margin-top: 10px;
+  
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  
+          th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+          }
+  
+          th {
+            background: #2b5876;
+            color: white;
+          }
+  
+          .sn {
+            width: 50px;
+            text-align: center;
+          }
+  
+          .subRow {
+            transition: all 0.3s ease-in-out;
             cursor: pointer;
+            
+            &:hover {
+              background: #f0f0f0;
+              transform: scale(1.02);
+            }
+          }
+  
+          tbody tr:nth-child(odd) {
+            background: #f9f9f9;
+          }
+  
+          tbody tr:nth-child(even) {
+            background: white;
+          }
         }
-
       }
     }
   }
-}
+  

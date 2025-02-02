@@ -9,9 +9,7 @@ const Home = () => {
     const user = useSelector((state) => state.user);
     useEffect(() => {
         const getPrograms = async () => {
-            const response = await axios.get(
-                "http://b8ow8oc.bct.itclub.pp.ua/api/program/all"
-            );
+            const response = await axios.get("/api/program/all");
             setPrograms(response.data);
         };
         getPrograms();
@@ -38,7 +36,7 @@ const Home = () => {
                             >
                                 <div className="item">
                                     <img
-                                        src={`http://b8ow8oc.bct.itclub.pp.ua/program-image/${program?.imgString}`}
+                                        src={`/program-image/${program?.imgString}`}
                                         alt=""
                                     />
                                     <p>

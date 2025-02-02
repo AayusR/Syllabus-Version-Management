@@ -80,34 +80,52 @@ router.put("/new-version/:subjectCode", async (req, res) => {
         return res.status(404).json(error);
     }
 });
-router.delete("/:subjectCode", async (req, res) => {
+// Deleting a specific syllabus version
+router.delete("/:subjectCode/version/:pdfName", async (req, res) => {
     try {
-        const getSubject = await Subject.findOne({
-            subjectCode: req.params.subjectCode,
-        });
-        const subjectDeleted = await Subject.findByIdAndDelete(getSubject._id);
-        console.log(subjectDeleted);
-        const filePath =
-            "/home/aditya/softaware-engineering/backend/SubjectImages/" +
-            subjectDeleted.imgString;
-        fs.unlink(filePath, () => {
-            console.log("Image has been removed from the server");
-        });
-        const lengthPdf = subjectDeleted.syllabus.length;
-        for (let i = 0; i < lengthPdf; i++) {
-            const filePath1 =
-                "/home/aditya/softaware-engineering/backend/SubjectPdf/" +
-                subjectDeleted.syllabus[i].pdf;
-            fs.unlink(filePath1, () => {
-                console.log("Pdf Deleted " + subjectDeleted.syllabus[i].pdf);
-            });
+        const { subjectCode, pdfName } = req.params;
+
+        // Find the subject by subjectCode
+        const subject = await Subject.findOne({ subjectCode });
+
+        if (!subject) {
+            return res.status(404).json({ message: "Subject not found" });
         }
 
-        return res.status(200).json("File Deleted");
+        // Filter out the syllabus version that matches the pdfName
+        const updatedSyllabus = subject.syllabus.filter(
+            (syllabus) => syllabus.pdf !== pdfName
+        );
+
+        // Update the subject with the new syllabus array
+        subject.syllabus = updatedSyllabus;
+
+        // Save the updated subject
+        const updatedSubject = await subject.save();
+
+        // Find and delete the associated PDF file from the server
+        const filePath = path.join(
+            __dirname,
+            "..",
+            "SubjectPdf",
+            pdfName
+        );
+
+        fs.unlink(filePath, (err) => {
+            if (err) {
+                console.log("Error deleting file:", err);
+            } else {
+                console.log("PDF file deleted:", pdfName);
+            }
+        });
+
+        return res.status(200).json(updatedSubject);
     } catch (error) {
-        return res.status(404).json(error);
+        console.log(error);
+        return res.status(500).json({ message: "Server Error", error });
     }
 });
+
 
 router.get("/all", async (req, res) => {
     try {

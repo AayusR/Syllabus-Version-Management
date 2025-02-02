@@ -26,17 +26,17 @@ const CreateSubject = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [name, setName] = useState("Select Subject");
-    const [subjectCode, setSubjectCode] = useState("0");
+    const [name, setName] = useState("");
+    const [subjectCode, setSubjectCode] = useState("");
     const [actualFile, setActualFile] = useState(null);
     const [fileName, setFileName] = useState("");
     const [pdfName, setPdfName] = useState("");
     const [pdfFile, setPdffile] = useState(null);
-    const [semester, setSemester] = useState("1");
+    const [semester, setSemester] = useState("");
     const [selectedProgram, setSelectedProgram] = useState([]);
     const [allPrograms, setAllPrograms] = useState([]);
     const [allSubjects, setAllSubjects] = useState([]);
-    const [selectedSubject, setSelectedSubject] = useState("EX602");
+    const [selectedSubject, setSelectedSubject] = useState("");
     const navigate = useNavigate();
     const user = useSelector((state) => state.user);
     const [openVersion, setOpenVersion] = useState(false);
@@ -45,7 +45,7 @@ const CreateSubject = () => {
     useEffect(() => {
         const getLatestVersion = async () => {
             const response = await axios.get(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/get-latest-version/${selectedSubject}`
+                `/api/subject/get-latest-version/${selectedSubject}`
             );
             setSubjVersionId(response.data);
         };
@@ -75,7 +75,7 @@ const CreateSubject = () => {
             pdfData.append("file", pdfFile);
 
             const response1 = await axios.post(
-                "http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload-file",
+                "/api/subject/upload-file",
                 pdfData,
                 config
             );
@@ -93,14 +93,14 @@ const CreateSubject = () => {
 
             //changing latest version of pdf
             const changedPdf = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/update-syllabus-pdf/${selectedSubject}`,
+                `/api/subject/update-syllabus-pdf/${selectedSubject}`,
                 {
                     id: subjVersionId,
                     pdf: response1.data,
                 }
             );
             const response2 = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${selectedSubject}`,
+                `/api/subject/${selectedSubject}`,
                 {
                     name,
                     subjectCode,
@@ -124,20 +124,20 @@ const CreateSubject = () => {
             };
 
             const response1 = await axios.post(
-                "http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload-file",
+                "/api/subject/upload-file",
                 pdfData,
                 config
             );
 
             const changedPdf = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/update-syllabus-pdf/${selectedSubject}`,
+                `/api/subject/update-syllabus-pdf/${selectedSubject}`,
                 {
                     id: subjVersionId,
                     pdf: response1.data,
                 }
             );
             const response2 = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${selectedSubject}`,
+                `/api/subject/${selectedSubject}`,
                 {
                     name,
                     subjectCode,
@@ -161,13 +161,13 @@ const CreateSubject = () => {
             };
 
             const response = await axios.post(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload`,
+                `/api/subject/upload`,
                 fileData,
                 config
             );
 
             const response2 = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${selectedSubject}`,
+                `/api/subject/${selectedSubject}`,
                 {
                     name,
                     subjectCode,
@@ -182,7 +182,7 @@ const CreateSubject = () => {
         } else {
             console.log("HELLO4");
             const response2 = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${selectedSubject}`,
+                `/api/subject/${selectedSubject}`,
                 {
                     name,
                     subjectCode,
@@ -225,7 +225,7 @@ const CreateSubject = () => {
         const getPrograms = async () => {
             try {
                 const response = await axios.get(
-                    "http://b8ow8oc.bct.itclub.pp.ua/api/program/all"
+                    "/api/program/all"
                 );
 
                 setAllPrograms(response.data);
@@ -241,7 +241,7 @@ const CreateSubject = () => {
     useEffect(() => {
         const getAllSubjects = async () => {
             const response = await axios.get(
-                "http://b8ow8oc.bct.itclub.pp.ua/api/subject/all"
+                "/api/subject/all"
             );
             setAllSubjects(response.data);
             setSelectedSubject(response.data[0].subjectCode);
@@ -252,7 +252,7 @@ const CreateSubject = () => {
     useEffect(() => {
         const getSingleSubject = async () => {
             const response = await axios.get(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${selectedSubject}`
+                `/api/subject/${selectedSubject}`
             );
             console.log("Single Subject Data is", response.data);
             setName(response.data.name);
@@ -276,7 +276,7 @@ const CreateSubject = () => {
                 },
             };
             const response = await axios.post(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/upload-file`,
+                `/api/subject/upload-file`,
                 pdfData,
                 config
             );
@@ -284,7 +284,7 @@ const CreateSubject = () => {
             setPdffile(null);
             setPdfName("");
             const response1 = await axios.put(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/new-version/${selectedSubject}`,
+                `/api/subject/new-version/${selectedSubject}`,
                 {
                     syllabus: {
                         pdf: response.data,

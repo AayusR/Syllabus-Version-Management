@@ -14,7 +14,7 @@ const Register = () => {
     const registerHandler = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://b8ow8oc.bct.itclub.pp.ua/api/auth/register", {
+            const response = await axios.post("/api/auth/register", {
                 username,
                 email,
                 password,
