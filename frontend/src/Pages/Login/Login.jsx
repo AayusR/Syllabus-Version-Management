@@ -16,7 +16,7 @@ const Login = () => {
     const loginHandler = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://b8ow8oc.bct.itclub.pp.ua/api/auth/login", {
+            const response = await axios.post("https://b8ow8oc.bct.itclub.pp.ua/api/auth/login", {
                 username,
                 password,
             });

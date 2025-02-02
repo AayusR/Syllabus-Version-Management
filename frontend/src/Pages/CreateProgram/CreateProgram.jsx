@@ -29,12 +29,12 @@ const CreateProgram = () => {
         },
       };
       const response = await axios.post(
-        "http://b8ow8oc.bct.itclub.pp.ua/api/program/upload",
+        "httpss://b8ow8oc.bct.itclub.pp.ua/api/program/upload",
         fileData,
         config
       );
 
-      const response1 = await axios.post("/api/program/create", {
+      const response1 = await axios.post("httpss://b8ow8oc.bct.itclub.pp.ua/api/program/create", {
         name,
         programCode,
         imgString: response.data,

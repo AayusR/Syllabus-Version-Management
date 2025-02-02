@@ -24,7 +24,7 @@ const Subjects = () => {
     // console.log("UseEffect ran");
     const fetchSubject = async () => {
       const response = await axios.get(
-        `http://b8ow8oc.bct.itclub.pp.ua/api/subject/parent/${urlParams.programCode}`
+        `https://b8ow8oc.bct.itclub.pp.ua/api/subject/parent/${urlParams.programCode}`
       );
       const items = response.data;
       setSemester1(items.filter((i) => i.semester === "1"));

@@ -21,7 +21,7 @@ const EditProgram = () => {
   useEffect(() => {
     const getPrograms = async () => {
       try {
-        const response = await axios.get("http://b8ow8oc.bct.itclub.pp.ua/api/program/all");
+        const response = await axios.get("https://b8ow8oc.bct.itclub.pp.ua/api/program/all");
 
         setAllPrograms(response.data);
         setSelectedProgram(response.data[0].programCode);
@@ -47,11 +47,11 @@ const EditProgram = () => {
           },
         };
         const response = await axios.post(
-          `http://b8ow8oc.bct.itclub.pp.ua/api/program/upload`,
+          `https://b8ow8oc.bct.itclub.pp.ua/api/program/upload`,
           fileData,
           config
         );
-        const response1 = await axios.put(`http://b8ow8oc.bct.itclub.pp.ua/api/program/${selectedProgram}`, {
+        const response1 = await axios.put(`https://b8ow8oc.bct.itclub.pp.ua/api/program/${selectedProgram}`, {
           imgString: response.data,
           name: programName,
           programCode,

@@ -20,7 +20,7 @@ const Versions = () => {
         const getSubject = async () => {
             try {
                 const response = await axios.get(
-                    `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${urlParams?.subjectCode}`
+                    `https://b8ow8oc.bct.itclub.pp.ua/api/subject/${urlParams?.subjectCode}`
                 );
                 setItem(response.data);
             } catch (error) {
@@ -34,7 +34,7 @@ const Versions = () => {
         try {
             // Make an API call to delete the version
             await axios.delete(
-                `http://b8ow8oc.bct.itclub.pp.ua/api/subject/${urlParams?.subjectCode}/version/${pdfName}`
+                `https://b8ow8oc.bct.itclub.pp.ua/api/subject/${urlParams?.subjectCode}/version/${pdfName}`
             );
 
             // Update the state to remove the deleted item from the syllabus
@@ -67,7 +67,7 @@ const Versions = () => {
                                 <a
                                     key={i.pdf}
                                     target="_blank"
-                                    href={`http://localhost:7132/subject-pdf/${i.pdf}`}
+                                    href={`https://localhost:7132/subject-pdf/${i.pdf}`}
                                 >
                                     Click To Open
                                 </a>
